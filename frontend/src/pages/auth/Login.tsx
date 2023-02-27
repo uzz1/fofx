@@ -9,6 +9,9 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "redux/actions/user";
 import { loginAdmin } from "redux/actions/admin";
 import FormField from "pages/auth/FormField";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +37,7 @@ interface IInitialValues {
   username: string;
   password: string;
 }
+
 
 const Login: React.FC = (): JSX.Element => {
   const classes = useStyles();
@@ -72,6 +76,12 @@ const Login: React.FC = (): JSX.Element => {
       alignItems='center'
       justifyContent='center'
     >
+       <Avatar sx={{ m: 1, bgcolor: '#400CCC' }}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Login
+            </Typography>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -80,7 +90,16 @@ const Login: React.FC = (): JSX.Element => {
         {({ isSubmitting, handleSubmit }) => (
           <form noValidate onSubmit={handleSubmit}>
             <FormField />
+            <div className={classes.checkboxWrapper}>
+        <Checkbox
+          checked={checked}
+          onChange={handleChange}
+          inputProps={{ "aria-label": "controlled" }}
+        />
+        <p>Admin</p>
+      </div>
             <Button
+              fullWidth
               type='submit'
               variant='contained'
               color='secondary'
@@ -92,14 +111,7 @@ const Login: React.FC = (): JSX.Element => {
           </form>
         )}
       </Formik>
-      <div className={classes.checkboxWrapper}>
-        <Checkbox
-          checked={checked}
-          onChange={handleChange}
-          inputProps={{ "aria-label": "controlled" }}
-        />
-        <p>Admin</p>
-      </div>
+      
     </Grid>
   );
 };

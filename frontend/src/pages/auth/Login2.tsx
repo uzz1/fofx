@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
+import {Link as RouterLink} from "react-router-dom"
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -17,9 +18,8 @@ function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
+        Uzair Ebrahim
+      {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -107,12 +107,12 @@ export default function SignInSide() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link>
+                  <RouterLink to="/login/admin">
+                    {"Admin? Sign in here"}
+                  </RouterLink>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="#" variant="body1">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

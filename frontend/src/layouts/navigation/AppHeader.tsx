@@ -80,7 +80,7 @@ import { PaddingTwoTone } from "@mui/icons-material";
       justifyContent: "space-between",
     },
     drawerContainer: {
-      padding: "20px 30px",
+      padding: "20px 35px",
     },
   }));
   

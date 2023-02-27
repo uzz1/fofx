@@ -9,6 +9,9 @@ import { useDispatch } from "react-redux";
 import { registerUser } from "redux/actions/user";
 import { registerAdmin } from "redux/actions/admin";
 import FormField from "pages/auth/FormField";
+import Typography from '@mui/material/Typography';
+import Avatar from '@mui/material/Avatar';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +42,6 @@ interface IInitialValues {
 const Register: React.FC = (): JSX.Element => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const [checked, setChecked] = React.useState<boolean>(false);
 
   const initialValues: IInitialValues = {
     username: "",
@@ -48,14 +50,10 @@ const Register: React.FC = (): JSX.Element => {
   };
 
   const onHandleSubmit = (values: IInitialValues, { setSubmitting }: any) => {
-    checked
-      ? dispatch(registerAdmin({ ...values, role: "admin" }, setSubmitting))
-      : dispatch(registerUser({ ...values, role: "user" }, setSubmitting));
+      dispatch(registerUser({ ...values, role: "user" }, setSubmitting));
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(event.target.checked);
-  };
+  
 
   const validationSchema = Yup.object({
     username: Yup.string().required("Invalid username!"),
@@ -75,6 +73,12 @@ const Register: React.FC = (): JSX.Element => {
       alignItems='center'
       justifyContent='center'
     >
+       <Avatar sx={{ m: 1, bgcolor: '#400CCC' }}>
+              <HowToRegIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Register
+            </Typography>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -84,6 +88,7 @@ const Register: React.FC = (): JSX.Element => {
           <form noValidate onSubmit={handleSubmit}>
             <FormField isRegister={true} />
             <Button
+              fullWidth
               type='submit'
               variant='contained'
               color='secondary'
@@ -95,14 +100,7 @@ const Register: React.FC = (): JSX.Element => {
           </form>
         )}
       </Formik>
-      <div className={classes.checkboxWrapper}>
-        <Checkbox
-          checked={checked}
-          onChange={handleChange}
-          inputProps={{ "aria-label": "controlled" }}
-        />
-        <p>Admin</p>
-      </div>
+    
     </Grid>
   );
 };

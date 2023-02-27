@@ -1,13 +1,11 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Button, CircularProgress } from "@material-ui/core";
-import Checkbox from "@mui/material/Checkbox";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 
 import { registerUser } from "redux/actions/user";
-import { registerAdmin } from "redux/actions/admin";
 import FormField from "pages/auth/FormField";
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';

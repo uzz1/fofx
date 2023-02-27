@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useMemo, useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import MaterialReactTable, {
   MRT_ColumnDef,
   MRT_ColumnFiltersState,
@@ -6,7 +6,7 @@ import MaterialReactTable, {
   MRT_SortingState,
   MRT_RowSelectionState,
 } from 'material-react-table';
-import {Button, Container, Box} from "@mui/material";
+import {Button, Container} from "@mui/material";
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import "./table.css";
 
@@ -17,12 +17,6 @@ import { IStock } from "redux/types/stock";
 import { IStockValue } from "redux/types/stock-values";
 import { getStockValues } from 'redux/actions/stock-values';
 
-type StockApiResponse = {
-  data: Array<Stock>;
-  meta: {
-    totalRowCount: number;
-  };
-};
 
 type Stock = {
   id: any;

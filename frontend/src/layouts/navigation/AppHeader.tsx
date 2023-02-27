@@ -18,8 +18,6 @@ import {
   import { logOutUser } from "redux/actions/user";
   import { logOutAdmin } from "redux/actions/admin";
   import { RootState } from "redux/reducers";
-import { padding } from "@mui/system";
-import { PaddingTwoTone } from "@mui/icons-material";
 
   
   
@@ -85,7 +83,7 @@ import { PaddingTwoTone } from "@mui/icons-material";
   }));
   
   const AppHeader: React.FC = (): JSX.Element => {
-    const { header, logo, logoImg, logoBox, logo2, logoBox2, menuButton, toolbar, drawerContainer } = useStyles();
+    const { header, logo, logoImg, logoBox, logo2, logoBox2, toolbar, drawerContainer } = useStyles();
     const dispatch = useDispatch();
 
     const user = useSelector((state: RootState) => state.user);

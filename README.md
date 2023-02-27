@@ -8,6 +8,7 @@ A person can login as an administrator, using the correct admin credential. Admi
 
 The stocks page consists of 2 tables, stocks and stock values. The user selects a stock from the stock table to display the corresponding values in the stock-values table. The user is then able to export and download the stock-values data in json format. 
 
+The stocks and stock values have been added to a cloud database from where they are accessed through the API routes built on the backend. On the frontend, the handling of the API calls and data is done using Redux. The users are managed in a similar way. 
 
 ## Technology Stack
 

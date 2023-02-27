@@ -37,6 +37,10 @@ Navigate to the backend directory and run:
 
 ## Run the App
 
+First add the provided JWT Secret and Mongo URI environment variables to the config.env file located at:
+### `backend > config > config.env`
+
+
 
 To start the development servers simultaneously for both backend and frontend:
 

@@ -171,7 +171,7 @@ const handleExportData = () => {
       )}`;
       const link = document.createElement("a");
       link.href = jsonString;
-      link.download = "data.json";
+      link.download = `${activeStock}.json`;
   
       link.click();
 }
